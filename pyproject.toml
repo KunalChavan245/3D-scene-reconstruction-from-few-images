@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fewview3d"
+version = "0.1.0"
+description = "Honest-protocol few-view 3D Gaussian Splatting: monocular vs multi-view depth priors"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy",
+    "scipy",
+    "pillow",
+    "torch",
+    "gsplat>=1.4",
+]
+
+[project.optional-dependencies]
+eval = ["lpips", "opencv-python-headless"]
+priors = ["transformers", "huggingface_hub"]
+dev = ["pytest", "matplotlib"]
+
+[tool.setuptools.packages.find]
+include = ["fewview3d*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
